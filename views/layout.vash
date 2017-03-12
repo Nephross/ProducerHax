@@ -8,8 +8,9 @@
 	<meta name="author" content="Peter Dalgaard-Jensen">
 		
 		<!-- Styles -->
-		<link rel="stylesheet" type="text/css" href="/styles/styles.css">
-		<link rel="stylesheet" type="text/css" href="/styles/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 
 	</head>
 
@@ -52,8 +53,9 @@
 
 
 		<!-- Scripts -->
-		<script src="/script/main.js"></script>
-		<script src="/script/jquery.js"></script>
+		<script src="/lib/jQuery/dist/jquery.js"></script>
+		<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="/javascripts/main.js"></script>
 	</body>
 	
 

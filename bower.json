@@ -1,5 +1,5 @@
 {
-    "name": "WebExpressive",
+    "name": "ProduerHax",
     "version": "0.0.0",
     "authors": [
         "username <peter.d.wiredelta@gmail.com>"
@@ -9,7 +9,6 @@
     "ignore": [],
     "dependencies": {
         "bootstrap": "latest",
-        "jQuery": "latest",
-        "angular-latest": "latest"
+        "jQuery": "latest"
     }
 }
