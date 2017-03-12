@@ -1,0 +1,15 @@
+{
+    "name": "WebExpressive",
+    "version": "0.0.0",
+    "authors": [
+        "username <peter.d.wiredelta@gmail.com>"
+    ],
+    "description": "ProducerHax podcast webapp",
+    "license": "MIT",
+    "ignore": [],
+    "dependencies": {
+        "bootstrap": "latest",
+        "jQuery": "latest",
+        "angular-latest": "latest"
+    }
+}
