@@ -1,0 +1,13 @@
+.body-content {
+	margin-top: 50px;
+}
+
+.top-logo {
+    height: 100%;
+    background-size: contain;
+}
+
+.jumbo-logo{
+	height: 75%;
+	background-size: contain;
+}

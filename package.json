@@ -9,6 +9,7 @@
   "dependencies": {
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
+    "csurf": "^1.9.0",
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "express-session": "^1.15.1",
@@ -23,7 +24,7 @@
     "grunt-shell": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-connect": "*",
-    "grunt-contrib-less" : "*",
+    "grunt-contrib-less": "*",
     "grunt-contrib-requirejs": "*",
     "grunt-contrib-copy": "*",
     "grunt-bower-install": "*",
