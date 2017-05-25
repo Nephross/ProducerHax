@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 	    res.redirect('/admin');
 	}
 	else {
-	    res.render('index.html');
+	    res.render('index.vash');
 	}
 
     res.render('index', { title: 'Express' });

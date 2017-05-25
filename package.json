@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha ./test/test.js --reporter spec"
+    "test": "mocha ./test/**/*.js --reporter spec",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -20,16 +21,6 @@
     "vash": "~0.12.2"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-shell": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-connect": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-requirejs": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-bower-install": "*",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-mocha-test": "^0.13.2",
     "mocha": "^3.2.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0"
