@@ -1,3 +1,0 @@
-@model.forEach(function(item){
-    <li>@item</li>
-})

@@ -2,6 +2,7 @@
   "name": "producerhax",
   "version": "0.0.0",
   "private": true,
+  "author": "Peter Dalgaard-Jensen",
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha ./test/**/*.js --reporter spec",
@@ -17,10 +18,16 @@
     "lodash": "^4.17.4",
     "morgan": "~1.7.0",
     "pg": "^6.1.2",
-    "serve-favicon": "~2.3.2",
-    "vash": "~0.12.2"
+    "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
+    "babel-eslint": "7.1.0",
+    "eslint": "3.18.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-config-standard": "7.1.0",
+    "eslint-plugin-angular": "^2.4.0",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "2.1.1",
     "mocha": "^3.2.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0"

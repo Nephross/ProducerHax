@@ -1,1 +1,18 @@
 Todo:
+
+Finish app by 00.00
+Push app to remote server by 01.00
+Write report and finish by 12.00
+
+
+Stuff still to do:
+
+registration page and api
+  img upload
+login page and api
+  jwt
+
+podcasts page
+  create podcast
+  see individual
+    comment if logged in
