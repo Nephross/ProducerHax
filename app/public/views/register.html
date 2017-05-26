@@ -1,0 +1,27 @@
+<h1>Register for Producerhax</h1>
+<form name="registrationForm" ng-submit="UserCtrl.register()">
+  <div>
+    <label for="userName">User Name</label>
+    <input type="text" name="userName" ng-model="newUser.userName">
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" name="email" ng-model="newUser.email">
+  </div>
+  <div>
+    <input class="input" type="file" accept=".jpg" name="profilePic" file-model="profilePic" valid-file>
+
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" ng-model="newUser.password">
+  </div>
+  <div>
+    <label for="rePassword">Repeat Password</label>
+    <input type="password" name="rePassword" ng-model="newUser.rePassword">
+  </div>
+  <div>
+    <input type="submit" value="Register">
+  </div>
+
+</form>

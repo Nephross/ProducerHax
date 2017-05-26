@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="producerhax">
+
+<head>
+  <meta charset="utf-8">
+  <title>ProducerHax - A Game Dev Podcast</title>
+  <meta name="description" content="Websecurity project">
+  <meta name="author" content="Peter Dalgaard-Jensen">
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/styles/style.css">
+  <!-- Base needed or html5mode (removing the #) -->
+  <base href="/">
+</head>
+<body class="ng-cloak" ng-controller="BodyCtrl">
+  <header class="ng-cloak " ng-include="'/views/header.html'"></header>
+
+  <div class="container body-content ng-cloak">
+    <div ui-view></div>
+  </div>
+
+  <footer class="ng-cloak site-footer" id="footerID" ng-include="'/views/footer.html'"></footer>
+
+
+  <!-- Scripts -->
+  <!-- Vendor scripts -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+  <!-- own scripts -->
+  <script src="/scripts/app.js"></script>
+
+  <!-- Controllers -->
+  <script src="/scripts/controllers/body.js"></script>
+  <script src="/scripts/controllers/home.js"></script>
+  <script src="/scripts/controllers/about.js"></script>
+  <script src="/scripts/controllers/blog.js"></script>
+  <script src="/scripts/controllers/podcast.js"></script>
+  <script src="/scripts/controllers/user.js"></script>
+
+  <!-- Services -->
+
+  <!-- Factories -->
+
+  <!-- Directives -->
+  <script src="/scripts/directives/fileModel.js"></script>
+
+  </body>
+
+</html>
