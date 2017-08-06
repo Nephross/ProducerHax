@@ -2,7 +2,7 @@
 
 const co = require('co');
 const HttpError = require('./../utils/http-error');
-const jwt = require('jwt');
+const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET;
 
 function extractIP(req, res, next) {

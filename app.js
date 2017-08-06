@@ -1,4 +1,6 @@
 'use strict';
+// Initialise env
+require('./configEnv');
 
 const express = require('express');
 const path = require('path');
@@ -10,11 +12,10 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const HttpError = require('./api/lib/utils/http-error');
 
-let api = require('./api/routes/api');
+// Routes ::V1
+const api = require('./api/routes/api');
 
 var app = express();
-
-app.set('views', path.join(__dirname, 'views'));
 
 app.set('x-powered-by', false); // Disables the http header value of x-powered-by
 

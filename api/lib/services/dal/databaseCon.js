@@ -9,11 +9,11 @@ const Pool = pg.Pool;
 console.log('Setting up the connection');
 // you can optionally supply other values
 const config = {
-  database: 'producerhax_db',
-  user: 'producerhax_client', // env var: PGUSER
-  password: 'f0cc13cee3621db6b4d85cead4a913fcf03216a8e833ba48f314cfe0f930ca42', // env var: PGPASSWORD
-  host: 'localhost', // Server hosting the postgres database
-  port: 5432, // env var: PGPORT
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER, // env var: PGUSER
+  password: process.env.DB_PASSWORD, // env var: PGPASSWORD
+  host: process.env.DB_HOST, // Server hosting the postgres database
+  port: process.env.DB_PORT, // env var: PGPORT
   max: 10, // max number of clients in the pool
   idleTimeoutMillis: 5000 // how long a client is allowed to remain idle before being closed
 };
