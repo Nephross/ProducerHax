@@ -10,9 +10,8 @@ const debug = require('debug')('producerhax:server');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const privateKey  = fs.readFileSync('sslcert/serverkey.pem', 'utf8');
+const privateKey = fs.readFileSync('sslcert/serverkey.pem', 'utf8');
 const certificate = fs.readFileSync('sslcert/servercert.pem', 'utf8');
-
 
 var credentials = {key: privateKey, cert: certificate};
 
@@ -24,7 +23,6 @@ var httpPort = normalizePort(process.env.HTTPPORT || '8080');
 var httpsPort = normalizePort(process.env.HTTPSPORT || '8443');
 app.set('httpPort', httpPort);
 app.set('httpsPort', httpsPort);
-
 
 /**
  * Create HTTP and HTTPS server.
@@ -41,12 +39,10 @@ httpServer.listen(httpPort);
 httpServer.on('error', onHttpError);
 httpServer.on('listening', onHttpListening);
 
-
 httpsServer.listen(httpsPort);
 
 httpsServer.on('error', onHttpsError);
 httpsServer.on('listening', onHttpsListening);
-
 
 /**
  * Normalize a port into a number, string, or false.
@@ -141,4 +137,3 @@ function onHttpsListening() {
   console.log('Listening on ' + bind);
   debug('Listening on ' + bind);
 }
-
