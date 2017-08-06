@@ -1,7 +1,7 @@
 'use strict';
 
 const multer = require('multer');
-const pathForUploadPic = require('./../../../app/public/images/uploads');
+const pathForUploadPic = './../../../app/public/images/uploads';
 const uuid = require('uuid/v4');
 
 const storage = multer.diskStorage({

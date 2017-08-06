@@ -6,7 +6,7 @@ const multer = require('./../../lib/middleware/multer');
 const blogController = require('./../../controllers/blog/blog.controller.js');
 
 // ::V1 endpoint: POST /api/blog/
-router.post('/blog', multer.single('profile_picture'), (req, res, next) => {
+router.post('/blog', multer.upload.single('profile_picture'), (req, res, next) => {
   blogController.createBlog(req.body)
     .then((blog) => res.json(blog))
     .catch(next);
@@ -27,7 +27,7 @@ router.get('/blog/:blogId', auth.authenticateJWT, (req, res, next) => {
 });
 
 // ::V1 endpoint: PUT /api/blog
-router.put('/blog/:blogId', auth.authenticateJWT, multer.single('profile_picture'), (req, res, next) => {
+router.put('/blog/:blogId', auth.authenticateJWT, multer.upload.single('profile_picture'), (req, res, next) => {
   blogController.updateBlog(req.params.blogId, req.body)
     .then((blog) => res.json(blog))
     .catch(next);
