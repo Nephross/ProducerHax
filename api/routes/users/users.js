@@ -12,16 +12,23 @@ router.post('/users', multer.single('profile_picture'), (req, res, next) => {
     .catch(next);
 });
 
+// ::V1 endpoint: GET /api/users
+router.get('/users', auth.authenticateJWT, (req, res, next) => {
+  userController.getUsers()
+    .then((users) => res.json(users))
+    .catch(next);
+});
+
 // ::V1 endpoint: GET /api/users/:userId
-router.get('/users/:userId', auth.authenticateJWT, multer.single('profile_picture'), (req, res, next) => {
+router.get('/users/:userId', auth.authenticateJWT, (req, res, next) => {
   userController.getUser(req.params.userId)
     .then((user) => res.json(user))
     .catch(next);
 });
 
 // ::V1 endpoint: PUT /api/users
-router.put('/users', auth.authenticateJWT, (req, res, next) => {
-  userController.updateuser(req.body)
+router.put('/users/:userId', auth.authenticateJWT, multer.single('profile_picture'), (req, res, next) => {
+  userController.updateUser(req.params.userId, req.body)
     .then((user) => res.json(user))
     .catch(next);
 });
