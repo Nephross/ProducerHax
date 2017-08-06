@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, '/app/')));
 // routes
 app.use('/api', api);
 
-app.all('/*', function(req, res, next) {
+app.all('/', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
   res.sendFile(path.join(__dirname, '/app/public/index.html'));
 });
