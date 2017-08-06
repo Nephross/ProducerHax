@@ -8,7 +8,7 @@ const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const HttpError = require('./api/utils/http-error');
+const HttpError = require('./api/lib/utils/http-error');
 
 let api = require('./api/routes/api');
 

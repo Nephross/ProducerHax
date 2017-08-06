@@ -1,13 +1,14 @@
 'use strict';
 
-//Model class for loginAttempt
-class loginAttempt{
-	constructor(in_loginAttemptId, in_triedUserName, in_timeStamp, in_ip, in_success){
-		this.loginAttemptId = in_loginAttemptId;
-		this.triedUserName = in_triedUserName;
-		this.timeStamp = in_timeStamp;
-		this.ip = in_ip;
-		this.success = in_success;
-	}
-
+// Model class for loginAttempt
+class loginAttempt {
+  constructor(inLoginAttemptId, inTriedUserName, inTimeStamp, inIp, inSuccess) {
+    this.loginAttemptId = inLoginAttemptId;
+    this.triedUserName = inTriedUserName;
+    this.timeStamp = inTimeStamp;
+    this.ip = inIp;
+    this.success = inSuccess;
+  }
 }
+
+module.exports = loginAttempt;
