@@ -4,9 +4,11 @@
   "private": true,
   "author": "Peter Dalgaard-Jensen",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "NODE_ENV='development' node ./bin/www",
     "test": "mocha ./test/**/*.js --reporter spec",
-    "dev": "nodemon ./bin/www"
+    "dev": "NODE_ENV='development' nodemon ./bin/www",
+    "staging":"NODE_ENV='staging' node ./bin/www",
+    "production":"NODE_ENV='production' node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
