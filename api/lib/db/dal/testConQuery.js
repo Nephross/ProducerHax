@@ -2,7 +2,7 @@
 
 var pg = require('pg');
 var client = new pg.Client();
-var conPool = require('./databaseCon');
+var conPool = require('./../databaseCon');
 
 function testConRes(err, data) {
 
@@ -27,7 +27,7 @@ function testConRes(err, data) {
         if (err) {
           return reject(err);
         }
-        //call `done()` to release the client back to the pool 
+        //call `done()` to release the client back to the pool
         done();
 
       });
