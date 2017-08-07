@@ -1,5 +1,6 @@
 <h1>Register for Producerhax</h1>
 <form name="registrationForm" ng-submit="UserCtrl.register()">
+   <input type="hidden", name="_csrf", value="_csrf">
   <div>
     <label for="userName">User Name</label>
     <input type="text" name="userName" ng-model="newUser.userName">
