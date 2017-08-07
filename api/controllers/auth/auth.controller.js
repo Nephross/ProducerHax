@@ -1,7 +1,8 @@
 'use strict';
 
 const co = require('co');
-const DAL = require('./../../lib/db/dal/auth');
+const authDAL = require('./../../lib/db/dal/auth');
+const userRoleDAL = require('./../../lib/db/dal/userRoles');
 const authService = require('./../../lib/services/auth');
 const HttpError = require('./../../lib/utils/http-error');
 
@@ -9,19 +10,21 @@ function login(userName, password, ip) {
   return co(function *() {
     // STUB
     // check login attempts - auth service?
-    const loginAttempts = yield DAL.checkLoginAttempts(userName);
-
+    const loginAttempts = yield authDAL.checkLoginAttempts(userName);
+    // check if the username has been attempted too many times in the last 10 minutes
     if (loginAttempts > 3) {
-      DAL.createLoginAttempt(userName, ip, false);
-      throw HttpError('Unautorized', 'Too many attmepts, try again in 10minutes', 401);
+      // if it has, then an error is thrown to the error handler and the attempt is logged
+      authDAL.createLoginAttempt(userName, ip, false);
+      throw HttpError('Unautorized', 'Too many attempts, try again in 10 minutes', 401);
     } else {
-      const user = yield DAL.userLogin(userName);
+      const user = yield authDAL.userLogin(userName);
       if (authService.comparePassword(password, user.salt, user.pwHash)) {
-        DAL.createLoginAttempt(userName, ip, true);
-        const jwtToken = authService.createJWT(user);
+        authDAL.createLoginAttempt(userName, ip, true);
+        const userRole = yield userRoleDAL.getUserRole(user.fk_userrole);
+        const jwtToken = authService.createJWT({userId: user.id, userRole: userRole.userrole});
         return {user: user, token: jwtToken};
       } else {
-        DAL.createLoginAttmpt(userName, ip, false);
+        authDAL.createLoginAttmpt(userName, ip, false);
         throw new HttpError('Unauthorized', 'Wrong password or username', 401);
       }
     }

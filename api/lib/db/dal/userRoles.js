@@ -5,14 +5,13 @@ const pg = require('pg');
 const client = new pg.Client();
 const conPool = require('./../databaseCon');
 
-function createUser(userName, email, salt, hash, profilepicpath, userRole) {
+function getUserRole(roleId) {
   return co(function *() {
     conPool.connect((err, client, done) => {
       if (err) {
         return err;
       } else {
-        const timeStamp = moment().format();
-        let query = client.query('SELECT * FROM phblogdb.sp_create_user($1, $2, $3, $4, $5, $6, $7)', [userName, email, timeStamp, salt, hash, profilepicpath, userRole], (err, result) => {
+        let query = client.query('SELECT * FROM phblogdb.sp_read_userroles($1)', [roleId], (err, result) => {
           if (err) {
             return err;
           }
@@ -31,4 +30,5 @@ function createUser(userName, email, salt, hash, profilepicpath, userRole) {
 }
 
 module.exports = {
+  getUserRole: getUserRole
 };

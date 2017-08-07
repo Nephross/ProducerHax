@@ -22,7 +22,6 @@ angular.module('producerhax', [
   $urlRouterProvider
         .when('/about', '/about')
         .when('/blog', '/blog')
-        .when('/podcast', '/podcast')
         .when('/user', '/user')
         .when('/login', '/login')
         .when('/register', '/register')
@@ -47,11 +46,6 @@ angular.module('producerhax', [
           url: '/blog',
           controller: 'BlogCtrl',
           templateUrl: 'views/blog.html'
-        })
-        .state('podcast', {
-          url: '/podcast',
-          controller: 'PodcastCtrl',
-          templateUrl: 'views/podcast.html'
         })
         .state('login', {
           url: '/login',

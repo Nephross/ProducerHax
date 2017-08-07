@@ -7,7 +7,7 @@ const authController = require('./../../controllers/auth/auth.controller.js');
 // ::V1 endpoint: POST /api/user/login
 router.post('/user/login', auth.extractIP, (req, res, next) => {
   authController.login(req.body.userName, req.body.password, req.ip)
-    .then((result) => res.status(200).json(result.user))
+    .then((result) => res.set('x-access-token', result.token).json(result.user))
     .catch(next);
 });
 
