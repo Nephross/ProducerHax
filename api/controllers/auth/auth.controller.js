@@ -12,12 +12,17 @@ function login(userName, password, ip) {
     const loginAttempts = yield DAL.checkLoginAttempts(userName);
 
     if (loginAttempts > 3) {
+      DAL.createLoginAttempt(userName, ip, false);
       throw HttpError('Unautorized', 'Too many attmepts, try again in 10minutes', 401);
     } else {
       const user = yield DAL.userLogin(userName);
       if (authService.comparePassword(password, user.salt, user.pwHash)) {
+        DAL.createLoginAttempt(userName, ip, true);
         const jwtToken = authService.createJWT(user);
         return {user: user, token: jwtToken};
+      } else {
+        DAL.createLoginAttmpt(userName, ip, false);
+        throw new HttpError('Unauthorized', 'Wrong password or username', 401);
       }
     }
     // if (login attempts are good)

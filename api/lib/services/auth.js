@@ -39,7 +39,7 @@ function comparePassword(password, salt, pwHash) {
     if (tryHash === pwHash) {
       return true;
     } else {
-      throw new HttpError('Unauthorized', 'Wrong password or username', 401);
+      return false;
     }
   });
 };
