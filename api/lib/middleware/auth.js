@@ -19,7 +19,7 @@ function extractIP(req, res, next) {
 
 function authenticateJWT(req, res, next) {
   // check header or url parameters or post parameters for token
-  const token = req.body.token || req.query.token || req.headers['x-access-token'];
+  const token = req.body.token || req.query.token || req.headers['x-access-token'] || extractToken(req);
 
   // decode token
   if (token) {
@@ -40,6 +40,14 @@ function authenticateJWT(req, res, next) {
     // if there is no token
     // return an error
     throw new HttpError('Unauthorized', 'Unauthorized', 401);
+  }
+}
+
+// This function is for getting the token out of the Authorization header created by the jwt module in the frontend.
+function extractToken(req) {
+  if (req.headers['Authorization']) {
+    const token = req.headers['Authorization'].split(' ');
+    return token[1];
   }
 }
 

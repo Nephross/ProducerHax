@@ -25,12 +25,24 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(csrf({ cookie: true })); // CRSF protection
+
 app.use(session({
-  secret: 'ssshhhhh',
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false // To reduce storrage usage
+  saveUninitialized: false, // To reduce storrage usage
+  cookie: {
+    httpOnly: true, // To mitigate XSS
+    secure: true // To avoid man in the middle Attacks
+  }
 })); // Session initialized
+app.use(csrf()); // CRSF protection
+
+// Middleware for setting csrf token on all responses.
+app.use(function(req, res, next) {
+  res.locals._csrf = req.csrfToken();
+  next();
+});
+
 app.use(express.static(path.join(__dirname, '/app/public/')));
 app.use(express.static(path.join(__dirname, '/app/')));
 
@@ -42,6 +54,7 @@ app.all('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '/app/public/index.html'));
 });
 
+// middleware for custom httpErrors
 app.use((err, req, res, next) => {
   if (err instanceof HttpError) {
     res.status(err.httpStatus);
@@ -64,11 +77,10 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res, next) {
   if (err.code !== 'EBADCSRFTOKEN') {
-    next(err);
+    // handle CSRF token errors here
+    res.status(403);
+    return res.send('form tampered with');
   }
-  // handle CSRF token errors here
-  res.status(403);
-  return res.send('form tampered with');
 });
 
 // Apply error handling after the routes
